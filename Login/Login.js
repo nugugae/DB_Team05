@@ -1,12 +1,13 @@
 
-document.querySelector("#login").addEventListener("click", () => {
+document.querySelector("#login").addEventListener("click", (e) => {
+    e.preventDefault();
     const id = "admin";
     const password = "1234";
  
     if(id == document.querySelector("#id").value) {
         if(password == document.querySelector("#password").value) {
-            alert("환영합니다!");
-            document.location.href = "home.html"; 
+            alert("환영합니다!")
+            document.location.href = "../category/home.html"; 
         }
         else {
             alert("비밀번호가 맞지 않습니다.");
