@@ -4,11 +4,14 @@
 	--border-gray-color : #dadada;
 	--naver-green-color: #04c75a;
 	--naver-green-border-color: #06b350;
-    --ewha-green-color:#067a39;
-    --ewha-green-border-color:#067a39;
+   	--ewha-green-color:#067a39;
+    	--ewha-green-border-color:#067a39;
 }
 
-img{vertical-align: middle;}
+img{
+	vertical-align: middle;
+	border-radius: 7px; 
+}
 div { 
 width: auto; 
 margin: 20px;
