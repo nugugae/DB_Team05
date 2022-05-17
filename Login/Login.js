@@ -6,7 +6,7 @@ document.querySelector("#login").addEventListener("click", () => {
     if(id == document.querySelector("#id").value) {
         if(password == document.querySelector("#password").value) {
             alert("환영합니다!");
-            window.location.href = "home.html"; 
+            document.location.href = "home.html"; 
         }
         else {
             alert("비밀번호가 맞지 않습니다.");
