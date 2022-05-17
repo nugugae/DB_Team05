@@ -164,6 +164,57 @@ footer{
     border: 0px;
 }
 
+
+.menu_count button{
+	width: 50px;
+	height :50px;
+	font-size: 18px;
+	border: solid 1px var(	--border-gray-color );
+	background: white;
+	border: solid 1px var(--ewha-green-border-color);
+    align-items: center;
+
+}
+
+.menu_count button:hover{
+	width: 50px;
+	height :50px;
+	font-size: 18px;
+	background: var(--ewha-green-color);
+	color: #e5e8e8e7;
+	border: solid 1px var(--ewha-green-border-color);
+    align-items: center;
+}
+    
+ 
+}
+
+#wrapper{
+    width: 800px;
+    height :1170px; 
+    margin: 15px auto; 
+    text-align: left; 
+    background: #8DB395; 
+    float: center; border: 1px solid #999999; 
+    padding: 20px; margin-bottom: 15px; 
+}
+footer{
+   
+	padding-top: 95px;
+	padding-bottom: 15px;
+
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:768px;
+    border: 0px;
+
+
+}
+.copyright-wrap{
+    border: 0px;
+}
+
 .menu_count button{
 	width: 50px;
 	height :50px;
