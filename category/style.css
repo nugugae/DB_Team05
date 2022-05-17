@@ -164,23 +164,13 @@ footer{
     border: 0px;
 }
 
-.menu_count1{display: inline-block;}
-.menu_count2{display: inline-block;}
-.menu_count3{display: inline-block;}
-.menu_count4{display: inline-block;}
-.menu_count5{display: inline-block;}
+.menu_count1{display: none;}
+.menu_count2{display: none;}
+.menu_count3{display: none;}
+.menu_count4{display: none;}
+.menu_count5{display: none;}
 
-#menu_name1{display: inline-block;}
-#menu_name2{display: inline-block;}
-#menu_name3{display: inline-block;}
-#menu_name4{display: inline-block;}
-#menu_name5{display: inline-block;}
 
-#result1{display: inline-block;}
-#result2{display: inline-block;}
-#result3{display: inline-block;}
-#result4{display: inline-block;}
-#result5{display: inline-block;}
 .menu_count button{
 	width: 50px;
 	height :50px;
