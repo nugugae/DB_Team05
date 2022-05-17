@@ -28,29 +28,31 @@ align-items: center;
 button{
 	
 	border: none;
-	padding: 15px 15px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	margin: 5px;
 	border-radius: 7px; 
     background-color:#E5E8E8; color:#196F3D; 
-    font-size:150%;
     font: verdana, sans-serif;
+	width: 25px;
+	height: 25px;
+	font-size:100%;
+	margin: 5px;
 }
 
 button:hover{
 	
 	border: none;
-	padding: 15px 15px;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	margin: 5px;
 	border-radius: 7px; 
     background-color:#e5e8e8da; color:#196F3D; 
-    font-size:150%;
     font: verdana, sans-serif;
+	width: 25px;
+	height: 25px;
+	font-size:100%;
+	margin: 5px;
 }
 
 
@@ -164,11 +166,11 @@ footer{
     border: 0px;
 }
 
-.menu_count1{display: none;}
-.menu_count2{display: none;}
-.menu_count3{display: none;}
-.menu_count4{display: none;}
-.menu_count5{display: none;}
+.menu_count1{display: none; padding-bottom:2px;}
+.menu_count2{display: none;padding-bottom:2px;}
+.menu_count3{display: none;padding-bottom:2px;}
+.menu_count4{display: none;padding-bottom:2px;}
+.menu_count5{display: none;padding-bottom:2px;}
 
 
 .menu_count button{
