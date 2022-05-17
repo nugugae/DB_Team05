@@ -1,6 +1,6 @@
 
 document.querySelector("#login").addEventListener("click", (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const id = "admin";
     const password = "1234";
  
