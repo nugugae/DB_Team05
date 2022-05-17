@@ -140,6 +140,26 @@ body{
  
 }
 
+#order_btn{
+	width: 465px;
+	height :60px;
+	font-size: 18px;
+	background: var(--ewha-green-color);
+	color: white;
+	border: solid 1px var(--ewha-green-color);
+    align-items: center;
+}
+
+#order_btn:hover{
+	width: 465px;
+	height :60px;
+	font-size: 18px;
+	background: #035125;
+	color: white;
+	border: solid 1px #035125;
+    align-items: center;
+}
+
 #wrapper{
     width: 800px;
     height :1170px; 
