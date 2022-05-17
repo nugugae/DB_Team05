@@ -128,7 +128,7 @@ body{
 }
 .button-wrap button:hover{
 	width: 465px;
-	height :100px;
+	height :48px;
 	font-size: 18px;
 	background: var(--ewha-green-color);
 	color: #e5e8e8e7;
