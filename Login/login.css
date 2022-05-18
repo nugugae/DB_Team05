@@ -5,7 +5,7 @@
 	--naver-green-color: #04c75a;
 	--naver-green-border-color: #06b350;
 }
-
+img{border-radius: 20px; }
 a {
     text-decoration-line: none;
     color: #000000;
