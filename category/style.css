@@ -20,10 +20,12 @@ border: 0px ;
 display:flex;	
 flex-direction: column;
 align-items: center;
-
-
 }
 
+#heading{ 
+	color: #eff7f1fb; 
+	display: inline-block;
+}
 
 button{
 	
