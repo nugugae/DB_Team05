@@ -1,0 +1,45 @@
+#showlogo{
+    text-align: center;
+    font-size: 400%;
+    font: verdana, sans-serif;
+    color: #eff7f1fb;
+}
+img{border-radius: 50px; }
+#wrapper { 
+width: 800px;
+height :1170px; 
+margin: 15px auto; 
+text-align: left; 
+background: #ffffff; 
+}
+#index_wrapper{
+    width: 800px;
+    height :1170px; 
+    margin: 15px auto; 
+    text-align: left; 
+    background: #ffffff; 
+    float: center; border: 1px solid #999999; 
+    padding: 20px; margin-bottom: 15px; 
+}
+
+a {
+    text-decoration-line: none;
+    color: #000000;
+  }
+
+div { 
+width: auto; 
+margin: 20px;
+padding: 10px; 
+border: 0px ;
+display:flex;	
+flex-direction: column;
+align-items: center;
+
+
+}
+
+.copyright-wrap{
+    font-size: 70%;
+    font: verdana, sans-serif;
+}
