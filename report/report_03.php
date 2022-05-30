@@ -15,7 +15,7 @@
             exit();
         }
         
-        $query="SELECT menu_id, hour(request_time) AS hour, count(request_id) AS count FROM request_info GROUP BY menu_id, hour(request_time) HAVING menu_id BETWEEN 15 AND 19 ORDER BY menu_id, hour;";
+        $query="SELECT menu_id, hour(request_time) AS hour, count(request_id) AS cnt FROM request_info GROUP BY menu_id, hour(request_time) HAVING menu_id BETWEEN 15 AND 19 ORDER BY menu_id, hour;";
         $result=mysqli_query($conn, $query);
         mysqli_close($conn);
         ?>
@@ -78,7 +78,7 @@
                         <tr>
                             <td><?=$row['menu_id']?></td>
                             <td><?=$row['hour']?></td>
-                            <td><?=$row['count']?></td>
+                            <td><?=$row['cnt']?></td>
                         </tr>
                 <?php }?>
                 </table>

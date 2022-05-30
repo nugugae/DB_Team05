@@ -9,15 +9,33 @@
     </head>
 
     <body>
+    <?php
+        $conn=mysqli_connect("localhost", "db_05", "database05", "food_court");
+        if (!$conn){
+            echo "Database Connection Error!";
+            echo "Could not connect: ".mysqli_connect_error();
+            exit();
+        }
+        
+        $query1="SELECT takeout, count(*) as cnt from request_info R
+        JOIN menu M on R.menu_id = M.menu_id
+        GROUP BY takeout, M.category_id HAVING M.category_id=4;";
+        $result1=mysqli_query($conn, $query1);
+        $query2="SELECT hour(R.request_time) as h, count(*) as cnt from request_info R
+        JOIN menu M on R.menu_id = M.menu_id
+        GROUP BY hour(R.request_time), M.category_id HAVING M.category_id=4;";
+        $result2=mysqli_query($conn, $query2);
+        mysqli_close($conn);
+        ?>
     <div id="wrapper">
     <header id="main_header">
-        <a href="report_DB.html"><h1>DATABASE REPORT</h1></a>
+        <a href="index.php"><h1>DATABASE REPORT</h1></a>
     </header>  
     <nav id="main_menu">  
         <ul>
-            <a href="report_01.html"><li> 보고서 1 </li></a>
-            <a href="report_02.html"><li> 보고서 2 </li></a>
-            <a href="report_03.html"><li> 보고서 3 </li></a>
+            <a href="report_01.php"><li> 보고서 1 </li></a>
+            <a href="report_02.php"><li> 보고서 2 </li></a>
+            <a href="report_03.php"><li> 보고서 3 </li></a>
         </ul>
     </nav>
     
@@ -32,6 +50,20 @@
             <p>
             푸드 코트 내 음식점을 이용한 사람이 푸드코트 내 카페를 이용하지 않는 경우가 많다. 
             <br><br>
+            <table width="50%">
+                    <tr>
+                        <th>테이크 아웃 여부</th>
+                        <th>시간</th>
+                    </tr>
+                <?php
+                    while ($row=mysqli_fetch_array($result1)){
+                        ?>
+                        <tr>
+                            <td><?=$row['takeout']?></td>
+                            <td><?=$row['cnt']?></td>
+                        </tr>
+                <?php }?>
+                </table>
             <figure>
                 <image src="./assets/report1-1.jpg" style="width:700px; height: 300px;"></image>
                 <figcaption>카페의 매장 내 이용과 테이크 아웃 비율</figcaption>
@@ -42,6 +74,20 @@
 	    위의 그래프에서 0은 매장이용, 1은 테이크아웃을 의미하며 테이크아웃 비율을 나타낸 것이다. 
             약 1/4도 안되는 사람들만이 매장을 이용하고 대부분은 카페 테이크아웃을 즐기는 것을 확인할 수 있다.
             <br><br>
+            <table width="50%">
+                    <tr>
+                        <th>시간</th>
+                        <th>이용객</th>
+                    </tr>
+                <?php
+                    while ($row=mysqli_fetch_array($result2)){
+                        ?>
+                        <tr>
+                            <td><?=$row['h']?></td>
+                            <td><?=$row['cnt']?></td>
+                        </tr>
+                <?php }?>
+                </table>
 	    <figure>
                 <image src="./assets/report1-2.jpg" style="width:400px; height: 300px;"></image>
                 <figcaption>카페 이용시간</figcaption>

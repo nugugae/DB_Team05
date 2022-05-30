@@ -9,15 +9,32 @@
     </head>
 
     <body>
+    <?php
+        $conn=mysqli_connect("localhost", "db_05", "database05", "food_court");
+        if (!$conn){
+            echo "Database Connection Error!";
+            echo "Could not connect: ".mysqli_connect_error();
+            exit();
+        }
+        $result=[];
+        for ($i=0; $i<5; $i++){
+            $query="SELECT hour(R.request_time) as h, count(*) as cnt from request_info R
+            JOIN menu M on R.menu_id = M.menu_id
+            GROUP BY hour(R.request_time), M.category_id HAVING M.category_id=${i};";
+            $result[$i]=mysqli_query($conn, $query);
+        }
+        
+        mysqli_close($conn);
+        ?>
     <div id="wrapper">
     <header id="main_header">
-        <a href="report_DB.html"><h1>DATABASE REPORT</h1></a>
+        <a href="index.php"><h1>DATABASE REPORT</h1></a>
     </header>  
     <nav id="main_menu">  
         <ul>
-            <a href="report_01.html"><li> 보고서 1 </li></a>
-            <a href="report_02.html"><li> 보고서 2 </li></a>
-            <a href="report_03.html"><li> 보고서 3 </li></a>
+            <a href="report_01.php"><li> 보고서 1 </li></a>
+            <a href="report_02.php"><li> 보고서 2 </li></a>
+            <a href="report_03.php"><li> 보고서 3 </li></a>
         </ul>
     </nav>
     
@@ -48,6 +65,22 @@
 
             <br><br>
             </p>
+            <form id="menu">
+                <input type="radio" name="menu" id=0 value=0/>
+                <label for=0>중국집</label>
+                <input type="radio" name="menu" id=1 value=1/>
+                <label for=1>한식집</label>
+                <input type="radio" name="menu" id=2 value=2/>
+                <label for=2>왕돈까스</label>
+                <input type="radio" name="menu" id=3 value=3/>
+                <label for=3>샌드위치</label>
+                <input type="radio" name="menu" id=4 value=4/>
+                <label for=4>커피전문점</label>
+            </form>
+            <table width="50%">
+
+            </table>
+
         
    </header>
    
@@ -78,6 +111,59 @@
     </footer>
     </div>    
     </body>
+    <script>
+        const title = ["중국집", "한식집", "왕돈까스", "샌드위치", "커피전문점"];
+        const phpCode = [`<?php
+                    while ($row=mysqli_fetch_array($result[0])){
+                        ?>
+                        <tr>
+                            <td><?=$row['h']?></td>
+                            <td><?=$row['cnt']?></td>
+                        </tr>
+                <?php }?>`, `<?php
+                    while ($row=mysqli_fetch_array($result[1])){
+                        ?>
+                        <tr>
+                            <td><?=$row['h']?></td>
+                            <td><?=$row['cnt']?></td>
+                        </tr>
+                <?php }?>`, `<?php
+                    while ($row=mysqli_fetch_array($result[2])){
+                        ?>
+                        <tr>
+                            <td><?=$row['h']?></td>
+                            <td><?=$row['cnt']?></td>
+                        </tr>
+                <?php }?>`, `<?php
+                    while ($row=mysqli_fetch_array($result[3])){
+                        ?>
+                        <tr>
+                            <td><?=$row['h']?></td>
+                            <td><?=$row['cnt']?></td>
+                        </tr>
+                <?php }?>`, `<?php
+                    while ($row=mysqli_fetch_array($result[4])){
+                        ?>
+                        <tr>
+                            <td><?=$row['h']?></td>
+                            <td><?=$row['cnt']?></td>
+                        </tr>
+                <?php }?>`]
+        function onChange(e){
+            e.preventDefault();
+            let value = parseInt(e.target.value);
+            div.innerHTML = `
+                    <tr>
+                        <th>시간</th>
+                        <th>${title[value]} 시간별 주문건수</th>
+                    </tr>
+                ${phpCode[value]}
+            `
+        }
+        const btn = document.querySelector("form#menu");
+        btn.addEventListener("change", onChange)
+        const div = document.querySelector("table")
+    </script>
 </html>
 
  
