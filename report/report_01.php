@@ -37,13 +37,13 @@
         ?>
     <div id="wrapper">
     <header id="main_header">
-        <a href="report_DB.html"><h1>DATABASE REPORT</h1></a>
+        <a href="index.php"><h1>DATABASE REPORT</h1></a>
     </header>  
     <nav id="main_menu">  
         <ul>
-            <a href="report_01.html"><li> 보고서 1 </li></a>
-            <a href="report_02.html"><li> 보고서 2 </li></a>
-            <a href="report_03.html"><li> 보고서 3 </li></a>
+            <a href="report_01.php"><li> 보고서 1 </li></a>
+            <a href="report_02.php"><li> 보고서 2 </li></a>
+            <a href="report_03.php"><li> 보고서 3 </li></a>
         </ul>
     </nav>
     
