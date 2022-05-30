@@ -74,7 +74,6 @@
             </p>
             <form id="time" name="time">
             </form>
-            <!-- <div id="time-table"> -->
             <?php
                 for ($i=9; $i<20; $i++){?>
 
@@ -93,7 +92,6 @@
                     <?php }?>
                 </table>
             <?php }?>
-            <!-- </div> -->
 
     </header>
     </article>
