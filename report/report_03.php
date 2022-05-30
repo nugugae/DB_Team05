@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
     <head>
 	<meta charset="UTF-8">
@@ -14,10 +15,15 @@
             echo "Could not connect: ".mysqli_connect_error();
             exit();
         }
+        $result=[];
+        for ($i=9; $i<20; $i++){
+            $query="SELECT hour(request_time) as h, menu_id, count(request_id) AS cnt FROM request_info
+            GROUP BY menu_id, h HAVING h = $i and menu_id BETWEEN 15 AND 19 ORDER BY menu_id;";
+            $result[$i-9]=mysqli_query($conn, $query);
+        }
         
-        $query="SELECT menu_id, hour(request_time) AS hour, count(request_id) AS cnt FROM request_info GROUP BY menu_id, hour(request_time) HAVING menu_id BETWEEN 15 AND 19 ORDER BY menu_id, hour;";
-        $result=mysqli_query($conn, $query);
         mysqli_close($conn);
+
         ?>
     <div id="wrapper">
     <header id="main_header">
@@ -66,22 +72,29 @@
 
             <br><br>
             </p>
-                <table width="50%">
+            <form id="time" name="time">
+            </form>
+            <!-- <div id="time-table"> -->
+            <?php
+                for ($i=9; $i<20; $i++){?>
+
+                <table id="time-table" hidden>
                     <tr>
                         <th>메뉴</th>
-                        <th>시간</th>
                         <th>주문건수</th>
                     </tr>
-                <?php
-                    while ($row=mysqli_fetch_array($result)){
+                    <?php
+                    while ($row=mysqli_fetch_array($result[$i-9])){
                         ?>
                         <tr>
                             <td><?=$row['menu_id']?></td>
-                            <td><?=$row['hour']?></td>
                             <td><?=$row['cnt']?></td>
                         </tr>
-                <?php }?>
+                    <?php }?>
                 </table>
+            <?php }?>
+            <!-- </div> -->
+
     </header>
     </article>
 
@@ -115,6 +128,34 @@
     </footer>
     </div>    
     </body>
+    <script>
+        let prev = null;
+        function onChange(e){
+            e.preventDefault();
+            let value = parseInt(e.target.value) - 9;
+            if (prev !== null){
+                tableList[prev].toggleAttribute("hidden");
+            }
+            tableList[value].toggleAttribute("hidden");
+            prev = value;
+        }
+        const form = document.querySelector("form#time");
+        form.addEventListener("change", onChange);
+        const tableList = document.querySelectorAll("table#time-table");
+        for (i=9; i<20; i++){
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.id = i;
+            input.value = i;
+            input.name="time"
+            const label = document.createElement("label");
+            label.appendChild(input);
+            label.for = i;
+            label.innerHTML+=`${i}시`;
+
+            form.appendChild(label);
+        }
+    </script>
 </html>
 
  

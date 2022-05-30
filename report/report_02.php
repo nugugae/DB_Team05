@@ -77,10 +77,25 @@
                 <input type="radio" name="menu" id=4 value=4/>
                 <label for=4>커피전문점</label>
             </form>
-            <table width="50%">
 
-            </table>
+            <?php
+                for ($i=0; $i<5; $i++){?>
 
+                <table id="menu-table" hidden>
+                    <tr>
+                        <th>시간</th>
+                        <th>주문건수</th>
+                    </tr>
+                    <?php
+                    while ($row=mysqli_fetch_array($result[$i])){
+                        ?>
+                        <tr>
+                            <td><?=$row['h']?></td>
+                            <td><?=$row['cnt']?></td>
+                        </tr>
+                    <?php }?>
+                </table>
+            <?php }?>
         
    </header>
    
@@ -112,57 +127,20 @@
     </div>    
     </body>
     <script>
+        let prev = null;
         const title = ["중국집", "한식집", "왕돈까스", "샌드위치", "커피전문점"];
-        const phpCode = [`<?php
-                    while ($row=mysqli_fetch_array($result[0])){
-                        ?>
-                        <tr>
-                            <td><?=$row['h']?></td>
-                            <td><?=$row['cnt']?></td>
-                        </tr>
-                <?php }?>`, `<?php
-                    while ($row=mysqli_fetch_array($result[1])){
-                        ?>
-                        <tr>
-                            <td><?=$row['h']?></td>
-                            <td><?=$row['cnt']?></td>
-                        </tr>
-                <?php }?>`, `<?php
-                    while ($row=mysqli_fetch_array($result[2])){
-                        ?>
-                        <tr>
-                            <td><?=$row['h']?></td>
-                            <td><?=$row['cnt']?></td>
-                        </tr>
-                <?php }?>`, `<?php
-                    while ($row=mysqli_fetch_array($result[3])){
-                        ?>
-                        <tr>
-                            <td><?=$row['h']?></td>
-                            <td><?=$row['cnt']?></td>
-                        </tr>
-                <?php }?>`, `<?php
-                    while ($row=mysqli_fetch_array($result[4])){
-                        ?>
-                        <tr>
-                            <td><?=$row['h']?></td>
-                            <td><?=$row['cnt']?></td>
-                        </tr>
-                <?php }?>`]
         function onChange(e){
             e.preventDefault();
             let value = parseInt(e.target.value);
-            div.innerHTML = `
-                    <tr>
-                        <th>시간</th>
-                        <th>${title[value]} 시간별 주문건수</th>
-                    </tr>
-                ${phpCode[value]}
-            `
+            if (prev !== null){
+                tableList[prev].toggleAttribute("hidden");
+            }
+            tableList[value].toggleAttribute("hidden");
+            prev = value;
         }
-        const btn = document.querySelector("form#menu");
-        btn.addEventListener("change", onChange)
-        const div = document.querySelector("table")
+        const form = document.querySelector("form#menu");
+        form.addEventListener("change", onChange)
+        const tableList = document.querySelectorAll("table#menu-table")
     </script>
 </html>
 
