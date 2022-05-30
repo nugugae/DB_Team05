@@ -50,3 +50,17 @@ border: 1px solid #000000;
 -chrome-box-sizing: border-box; 
 -webkit-box-sizing: border-box; box-sizing: border-box; 
 }
+
+table, tr{
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: #CCCCCC;
+  padding: 10px;
+  text-align: center;
+}
+
+#sql-search{
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
