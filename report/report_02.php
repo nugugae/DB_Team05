@@ -81,7 +81,7 @@
             <?php
                 for ($i=0; $i<5; $i++){?>
 
-                <table id="menu-table" hidden>
+                <table id="menu-table" hidden style="margin-top: 15px;" width="30%">
                     <tr>
                         <th>시간</th>
                         <th>주문건수</th>

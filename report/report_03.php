@@ -74,10 +74,11 @@
             </p>
             <form id="time" name="time">
             </form>
+            <br>
             <?php
                 for ($i=9; $i<20; $i++){?>
 
-                <table id="time-table" hidden>
+                <table id="time-table" hidden width="30%">
                     <tr>
                         <th>메뉴</th>
                         <th>주문건수</th>

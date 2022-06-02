@@ -72,6 +72,7 @@
                         </tr>
                 <?php }?>
             </table>
+            <br>
 	    <figure>
                 <image src="./assets/report1-2.jpg" style="width:400px; height: 300px;"></image>
                 <figcaption>카페 이용시간</figcaption>
@@ -97,7 +98,7 @@
                     </tr>
             <?php }?>
         </table>
-
+        <br>
         <table width="70%">
                 <tr>
                     <th>푸드코드에서 식사한 고객 수</th>
@@ -114,6 +115,7 @@
                     </tr>
             <?php }?>
         </table>
+        <br>
 	    <figure>
                 <image src="./assets/report1-5.png" style="width:400px; height: 300px;"></image>
                 <figcaption>푸드코트 내 다른 음식점을 이용한 사람들과의 관계성</figcaption>
@@ -121,7 +123,7 @@
 	    <br><br>
             위의 그래프는 푸드코트 내 음식점을 이용하는 사람 중에 카페를 이용한 사람이 얼마나 되는지 나타낸 그래프이다. </br>
 	    푸드코트 내 음식점 이용한 71명 중에 7명만 카페 이용하였다. 
-            7명이라는 숫자는 푸드코트 내 음식점 이용자인 71명의 1/10도 안 되는 사람들이 식사 후 푸드코트 내 카페를 이용했음을 알 수 있다. 
+            7명이라는 숫자는 푸드코트 내 음식점 이용자인 85명의 1/10도 안 되는 사람들이 식사 후 푸드코트 내 카페를 이용했음을 알 수 있다. 
 	    푸드코트 내 음식점 이용 후, 카페를 이용하는 사람이 매우 적음을 확인하였다.
 		    
             <br><br>
