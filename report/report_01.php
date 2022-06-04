@@ -75,7 +75,7 @@
             <br>
 	    <figure>
                 <image src="./assets/report1-2.jpg" style="width:400px; height: 300px;"></image>
-                <figcaption>카페 이용시간</figcaption>
+                <figcaption>시간에 따른 카페 이용건수</figcaption>
             </figure>
 	    <br><br>
             위의 그래프는 카페 이용자의 이용시간에 대한 정보를 나타낸 그래프이다. </br>
